@@ -10,3 +10,11 @@ export const AppContainer = styled.div`
 `;
 
 export const Text = styled(Typography)`` as typeof Typography;
+
+export const ProgressContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+`;
