@@ -1,4 +1,4 @@
-import { Typography, Paper } from "@mui/material";
+import { Typography, Paper, Box } from "@mui/material";
 import styled from "styled-components";
 
 export const AppContainer = styled.div`
@@ -19,11 +19,12 @@ export const ProgressContainer = styled.div`
   height: 15px;
 `;
 
-export const AirBubbleContainer = styled.div`
+export const AirBubbleContainer = styled(Box)`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+  position: relative;
+` as typeof Box;

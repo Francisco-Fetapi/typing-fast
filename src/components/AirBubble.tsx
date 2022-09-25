@@ -8,5 +8,15 @@ interface Props {
 }
 
 export default function AirBubble({ bubble }: Props) {
-  return <AirBubbleContainer>{bubble.letter}</AirBubbleContainer>;
+  return (
+    <AirBubbleContainer
+      sx={{
+        top: `${bubble.top}%`,
+        left: `${bubble.left}%`,
+        transition: "all 1s linear",
+      }}
+    >
+      {bubble.letter}
+    </AirBubbleContainer>
+  );
 }
