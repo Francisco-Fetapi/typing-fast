@@ -16,5 +16,5 @@ export const ProgressContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  height: 25px;
+  height: 15px;
 `;

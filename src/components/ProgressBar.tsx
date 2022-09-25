@@ -11,7 +11,7 @@ export default function ProgressBar() {
           height: "100%",
         }}
       />
-      <Stack mt={1} direction="row" justifyContent="center" gap={2}>
+      <Stack mt={1} direction="row" justifyContent="space-evenly" gap={2}>
         <InfoItem title="Tempo" content="02m:12s" />
         <InfoItem title="Apanhadas" content="0" />
         <InfoItem title="Caidas" content="0/10" />
