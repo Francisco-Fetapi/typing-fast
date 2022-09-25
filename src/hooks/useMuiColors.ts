@@ -26,7 +26,5 @@ export default function useMuiColors() {
     return infoColors;
   }, []);
 
-  console.log(allColors);
-
   return allColors;
 }
