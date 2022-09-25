@@ -61,7 +61,8 @@ export function sliceCreator(initialState: App) {
         state.bubbles = action.payload;
       },
       addBubble(state) {
-        state.bubbles.unshift(new Bubble());
+        const newBubble = new Bubble();
+        state.bubbles.unshift(newBubble);
       },
     },
   });

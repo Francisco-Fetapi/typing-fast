@@ -3,9 +3,9 @@ import { useTheme, colors } from "@mui/material";
 import { useMemo } from "react";
 
 type IColorKey = keyof typeof colors.blue;
-interface Color {
-  textColor: string;
-  bgColor: string;
+export interface Color {
+  color: string;
+  backgroundColor: string;
 }
 
 export default function useMuiColors() {
@@ -18,8 +18,8 @@ export default function useMuiColors() {
       let colorName = colors[color];
       Object.values(colorName).forEach((val) => {
         infoColors.push({
-          bgColor: val,
-          textColor: theme.palette.getContrastText(val),
+          backgroundColor: val,
+          color: theme.palette.getContrastText(val),
         });
       });
     }
