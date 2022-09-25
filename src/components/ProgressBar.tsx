@@ -49,7 +49,12 @@ function InfoItem({ title, content }: InfoItemProps) {
       <Text variant="subtitle2">
         <b>{title.toUpperCase()}</b>
       </Text>
-      <Text variant="subtitle2" color="Highlight">
+      <Text
+        variant="subtitle2"
+        sx={(theme) => ({
+          color: theme.palette.primary.main,
+        })}
+      >
         {content}
       </Text>
     </Stack>
