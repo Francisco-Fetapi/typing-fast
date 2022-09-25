@@ -1,7 +1,7 @@
 # Ideias da Aplicação
 
-[] - Deve ter uma página apenas.
-[] - Deve ter um header com as info do jogo: Tempo, letras apanhadas, hight score(num de letras apanhadas)
+[x] - Deve ter uma página apenas.
+[x] - Deve ter um header com as info do jogo: Tempo, letras apanhadas, hight score(num de letras apanhadas)
 [] - As cores devem ser geradas aleatoriamente. Use as do MUI.
 [] - Deve ter um sistema de score.
 [] - Deve ter um limite de letras caidas, depoi GAMEOVER.
