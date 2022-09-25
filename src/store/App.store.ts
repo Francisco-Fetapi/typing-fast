@@ -20,7 +20,7 @@ export const initialState: App = {
   timerPaused: true,
   timer: 0,
   lettersObtained: 0,
-  lettersFall: 0,
+  lettersFall: 12,
   limitLettersFall: 20,
 };
 

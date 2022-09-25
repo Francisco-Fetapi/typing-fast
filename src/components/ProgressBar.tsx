@@ -5,6 +5,7 @@ import {
   selectLettersFall,
   selectLettersObtained,
   selectLimitLettersFall,
+  selectProgressValue,
   selectTimer,
 } from "../store/App.selectors";
 import { ProgressContainer, Text } from "../styles/General";
@@ -14,12 +15,13 @@ export default function ProgressBar() {
   const lettersObtained = useSelector(selectLettersObtained);
   const lettersFall = useSelector(selectLettersFall);
   const limitLettersFall = useSelector(selectLimitLettersFall);
+  const progressValue = useSelector(selectProgressValue);
 
   return (
     <ProgressContainer>
       <LinearProgress
         variant="determinate"
-        value={20}
+        value={progressValue}
         sx={{
           height: "100%",
         }}

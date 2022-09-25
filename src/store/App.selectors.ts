@@ -8,3 +8,7 @@ export const selectLettersObtained = (state: RootState) =>
 export const selectLettersFall = (state: RootState) => state.app.lettersFall;
 export const selectLimitLettersFall = (state: RootState) =>
   state.app.limitLettersFall;
+
+export const selectProgressValue = (state: RootState) => {
+  return (selectLettersFall(state) / selectLimitLettersFall(state)) * 100;
+};
