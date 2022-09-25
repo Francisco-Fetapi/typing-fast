@@ -24,7 +24,7 @@ export const initialState: App = {
   lettersObtained: 0,
   lettersFall: 12,
   limitLettersFall: 20,
-  bubbles: [new Bubble(), new Bubble(), new Bubble()],
+  bubbles: [new Bubble(), new Bubble(), new Bubble(), new Bubble()],
 };
 
 function stateReseted(initialState: App): App {
@@ -60,6 +60,9 @@ export function sliceCreator(initialState: App) {
       setBubbles(state, action: PayloadAction<Bubble[]>) {
         state.bubbles = action.payload;
       },
+      addBubble(state) {
+        state.bubbles.unshift(new Bubble());
+      },
     },
   });
 }
@@ -86,6 +89,7 @@ export const {
   playTimer,
   pauseTimer,
   setBubbles,
+  addBubble,
 } = app.actions;
 
 export default store;

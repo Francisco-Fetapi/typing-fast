@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Bubble } from "../entities/Bubble";
 import { selectBubbles, selectTimer } from "../store/App.selectors";
-import { setBubbles } from "../store/App.store";
+import { addBubble, setBubbles } from "../store/App.store";
 import useMuiColors from "./useMuiColors";
 
 const UPDATE_ALL_IN_EACH = 100; //100 milliseconds
@@ -29,7 +29,7 @@ export default function useGameLoop() {
   }, [mseconds]);
 
   // useEffect(() => {
-  //   dispatch(setBubbles([...bubbles, new Bubble()]));
-  // }, [seconds]);
+  //   dispatch(addBubble());
+  // }, [seconds % 5 === 0]);
   return {};
 }

@@ -26,5 +26,5 @@ export const AirBubbleContainer = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
 ` as typeof Box;
