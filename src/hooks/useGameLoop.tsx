@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Bubble } from "../entities/Bubble";
 import { selectBubbles } from "../store/App.selectors";
 import { setBubbles } from "../store/App.store";
 import useMuiColors from "./useMuiColors";
@@ -21,8 +22,12 @@ export default function useGameLoop() {
   }, [mseconds]);
 
   useEffect(() => {
-    const updatedBubbles = bubbles.map((bubble) => bubble.update());
+    let updatedBubbles = bubbles.map((bubble) => bubble.update());
     dispatch(setBubbles(updatedBubbles));
+  }, [mseconds]);
+
+  useEffect(() => {
+    const newBubble = new Bubble();
   }, [mseconds]);
   return {};
 }

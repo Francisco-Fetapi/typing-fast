@@ -24,7 +24,7 @@ export const initialState: App = {
   lettersObtained: 0,
   lettersFall: 12,
   limitLettersFall: 20,
-  bubbles: [new Bubble("a")],
+  bubbles: [new Bubble()],
 };
 
 function stateReseted(initialState: App): App {
