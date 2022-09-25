@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
+import { Bubble } from "../entities/Bubble";
+import { selectBubble } from "../store/App.selectors";
 import { AirBubbleContainer } from "../styles/General";
 
 interface Props {
-  id: number;
+  bubble: Bubble;
 }
 
-export default function AirBubble({ id }: Props) {
-  return <AirBubbleContainer></AirBubbleContainer>;
+export default function AirBubble({ bubble }: Props) {
+  return <AirBubbleContainer>{bubble.letter}</AirBubbleContainer>;
 }

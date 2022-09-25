@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
+import { Bubble } from "../entities/Bubble";
 import useStatePersist from "../hooks/useStatePersist";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
@@ -13,6 +14,7 @@ export interface App extends IDarkMode {
   lettersObtained: number;
   lettersFall: number;
   limitLettersFall: number;
+  bubbles: Bubble[];
 }
 
 export const initialState: App = {
@@ -22,6 +24,7 @@ export const initialState: App = {
   lettersObtained: 0,
   lettersFall: 12,
   limitLettersFall: 20,
+  bubbles: [new Bubble("a")],
 };
 
 function stateReseted(initialState: App): App {
