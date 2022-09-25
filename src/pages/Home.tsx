@@ -7,10 +7,11 @@ const SECONDS_BEFORE_START = 3;
 
 export default function Home() {
   const [seconds, setSeconds] = useState(SECONDS_BEFORE_START);
+  const gameStarted = seconds === 0;
   return (
     <AppContainer>
       <TimerBeforeStart seconds={seconds} setSeconds={setSeconds} />
-      <ProgressBar />
+      {gameStarted && <ProgressBar />}
     </AppContainer>
   );
 }
