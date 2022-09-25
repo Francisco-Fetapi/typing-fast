@@ -15,7 +15,7 @@ export class Bubble {
     this.letter = selectRandomElement(Letters);
   }
   goDown(): Bubble {
-    if (this.top === 100) {
+    if (this.top >= 100) {
       this.isInside = false;
       return this;
     }
