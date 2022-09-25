@@ -18,7 +18,7 @@ export default function BubbleField() {
   return (
     <Box position="absolute" height="100vh" width="100vw" top={0}>
       {bubbles.map((bubble) => (
-        <AirBubble bubble={bubble} />
+        <AirBubble bubble={bubble} key={bubble.id} />
       ))}
     </Box>
   );

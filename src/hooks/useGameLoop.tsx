@@ -28,8 +28,8 @@ export default function useGameLoop() {
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
 
-  // useEffect(() => {
-  //   dispatch(addBubble());
-  // }, [seconds % 5 === 0]);
+  useEffect(() => {
+    dispatch(addBubble());
+  }, [seconds % 5 === 0]);
   return {};
 }
