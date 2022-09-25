@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectBubbles, selectTimer } from "../store/App.selectors";
+import { selectBubbles } from "../store/App.selectors";
 import { setBubbles } from "../store/App.store";
 
 const UPDATE_ALL_IN_EACH = 100; //100 milliseconds
