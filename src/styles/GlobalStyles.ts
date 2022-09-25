@@ -11,5 +11,7 @@ export const GlobalStyles = createGlobalStyle<StylesProps>`
         background-attachment: fixed;
         background-repeat:no-repeat;
         background-size:cover;
+
+        overflow:hidden;
     }
 `;

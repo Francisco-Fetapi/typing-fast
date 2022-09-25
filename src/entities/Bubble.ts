@@ -18,7 +18,7 @@ export class Bubble {
     this.id = v4();
   }
   goDown(): Bubble {
-    if (this.top >= 100) {
+    if (this.top >= 110) {
       this.isInside = false;
       return this;
     }

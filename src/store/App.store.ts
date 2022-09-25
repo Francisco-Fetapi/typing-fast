@@ -24,7 +24,7 @@ export const initialState: App = {
   lettersObtained: 0,
   lettersFall: 12,
   limitLettersFall: 20,
-  bubbles: [new Bubble(), new Bubble(), new Bubble(), new Bubble()],
+  bubbles: [],
 };
 
 function stateReseted(initialState: App): App {
@@ -73,6 +73,7 @@ export const middlewares = {
   serializableCheck: {
     // Ignore these paths in the state
     ignoredPaths: ["app.bubbles", "payload.0"],
+    ignoredActions: ["app/setBubbles", "app/addBubble"],
   },
 };
 export const store = configureStore({
