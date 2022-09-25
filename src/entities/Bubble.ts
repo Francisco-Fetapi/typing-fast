@@ -5,14 +5,16 @@ export class Bubble {
   public left: number = 0;
   public isOut: boolean = false;
   constructor(public letter: ILetter) {}
-  goDown(): void {
+  goDown(): Bubble {
     if (this.top === 100) {
       this.isOut = true;
-      return;
+      return this;
     }
     this.top += 5;
+    return this;
   }
-  update() {
+  update(): Bubble {
     this.goDown();
+    return this;
   }
 }

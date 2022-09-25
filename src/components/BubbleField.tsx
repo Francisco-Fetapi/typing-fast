@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { selectBubble } from "../store/App.selectors";
+import { selectBubbles } from "../store/App.selectors";
 import AirBubble from "./AirBubble";
 import { playTimer } from "../store/App.store";
+import useGameLoop from "../hooks/useGameLoop";
 
 export default function BubbleField() {
-  const bubbles = useSelector(selectBubble);
+  const bubbles = useSelector(selectBubbles);
   const dispatch = useDispatch();
+  useGameLoop();
 
   useEffect(() => {
     dispatch(playTimer());

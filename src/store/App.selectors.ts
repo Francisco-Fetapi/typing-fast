@@ -13,7 +13,7 @@ export const selectProgressValue = (state: RootState) => {
   return (selectLettersFall(state) / selectLimitLettersFall(state)) * 100;
 };
 
-export const selectBubble = (state: RootState) => {
+export const selectBubbles = (state: RootState) => {
   return state.app.bubbles;
 };
 

@@ -57,6 +57,9 @@ export function sliceCreator(initialState: App) {
       pauseTimer(state) {
         state.timerPaused = true;
       },
+      setBubbles(state, action: PayloadAction<Bubble[]>) {
+        state.bubbles = action.payload;
+      },
     },
   });
 }
@@ -76,8 +79,14 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(middlewares),
 });
 
-export const { toggleTheme, resetAllState, setTimer, playTimer, pauseTimer } =
-  app.actions;
+export const {
+  toggleTheme,
+  resetAllState,
+  setTimer,
+  playTimer,
+  pauseTimer,
+  setBubbles,
+} = app.actions;
 
 export default store;
 
