@@ -27,6 +27,8 @@
 
    1.6 Quando clicada resetar numero de letras caidas.
 
+   1.7 Uma ball que muda a sua letra 3 a 3 segundos.
+
 [] - Qtd balls apanhadas num segundo em real time. clean per second.
 
 ## NOTAS
