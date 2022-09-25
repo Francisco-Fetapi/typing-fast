@@ -27,6 +27,8 @@
 
    1.6 Quando clicada resetar numero de letras caidas.
 
+[] - Qtd balls apanhadas num segundo em real time. clean per second.
+
 ## NOTAS
 
 `NOTA 1:`: As constantes do jogo devem estar no store para que possam ser alteraveis por qualquer componente, assim, os efeitos serão mais fáceis de serem implementados. Coisas como _tempo de queda_,_lista de letras na tela_,_timer_,_timer paused_,_letras caidas_ e mais devem estar no store.

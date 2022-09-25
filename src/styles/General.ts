@@ -18,3 +18,12 @@ export const ProgressContainer = styled.div`
   right: 0;
   height: 15px;
 `;
+
+export const AirBubbleContainer = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
