@@ -7,10 +7,19 @@ export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
 export interface IDarkMode {
   darkMode: boolean;
 }
-export interface App extends IDarkMode {}
+export interface App extends IDarkMode {
+  timerPaused: boolean;
+  timer: number;
+  lettersObtained: number;
+  lettersFall: number;
+}
 
-const initialState: App = {
+export const initialState: App = {
   darkMode: useStatePersist<boolean>(THEME_KEY_IN_LOCALSTORAGE).get(),
+  timerPaused: true,
+  timer: 0,
+  lettersObtained: 0,
+  lettersFall: 0,
 };
 
 function stateReseted(initialState: App): App {
