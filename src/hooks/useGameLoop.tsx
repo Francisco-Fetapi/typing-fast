@@ -17,6 +17,7 @@ export default function useGameLoop() {
       setMseconds(mseconds + 1);
     }, UPDATE_ALL_IN_EACH);
   }, [mseconds]);
+  //
 
   useEffect(() => {
     const newBubbles = bubbles.map((bubble) => bubble.update());
