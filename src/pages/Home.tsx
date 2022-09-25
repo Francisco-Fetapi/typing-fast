@@ -11,7 +11,11 @@ export default function Home() {
   return (
     <AppContainer>
       <TimerBeforeStart seconds={seconds} setSeconds={setSeconds} />
-      {gameStarted && <ProgressBar />}
+      {gameStarted && (
+        <>
+          <ProgressBar />
+        </>
+      )}
     </AppContainer>
   );
 }
