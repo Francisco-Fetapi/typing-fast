@@ -12,6 +12,7 @@ export interface App extends IDarkMode {
   timer: number;
   lettersObtained: number;
   lettersFall: number;
+  limitLettersFall: number;
 }
 
 export const initialState: App = {
@@ -20,6 +21,7 @@ export const initialState: App = {
   timer: 0,
   lettersObtained: 0,
   lettersFall: 0,
+  limitLettersFall: 20,
 };
 
 function stateReseted(initialState: App): App {
