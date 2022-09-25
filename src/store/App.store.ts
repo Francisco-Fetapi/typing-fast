@@ -48,6 +48,15 @@ export function sliceCreator(initialState: App) {
         }
         Object.assign(state, stateReseted(initialState));
       },
+      setTimer(state, action: PayloadAction<number>) {
+        state.timer = action.payload;
+      },
+      playTimer(state) {
+        state.timerPaused = false;
+      },
+      pauseTimer(state) {
+        state.timerPaused = true;
+      },
     },
   });
 }
@@ -57,7 +66,7 @@ export const app = sliceCreator(initialState);
 export const middlewares = {
   serializableCheck: {
     // Ignore these paths in the state
-    ignoredPaths: [],
+    ignoredPaths: ["app.bubbles"],
   },
 };
 export const store = configureStore({
@@ -67,7 +76,8 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(middlewares),
 });
 
-export const { toggleTheme, resetAllState } = app.actions;
+export const { toggleTheme, resetAllState, setTimer, playTimer, pauseTimer } =
+  app.actions;
 
 export default store;
 

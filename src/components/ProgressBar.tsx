@@ -1,6 +1,7 @@
 import { LinearProgress, Stack } from "@mui/material";
 import { useSelector } from "react-redux";
 import { timeTransformer2 } from "../helpers/timeTransformer";
+import useTimer from "../hooks/useTimer";
 import {
   selectLettersFall,
   selectLettersObtained,
@@ -11,7 +12,7 @@ import {
 import { ProgressContainer, Text } from "../styles/General";
 
 export default function ProgressBar() {
-  const timer = useSelector(selectTimer);
+  const { seconds } = useTimer();
   const lettersObtained = useSelector(selectLettersObtained);
   const lettersFall = useSelector(selectLettersFall);
   const limitLettersFall = useSelector(selectLimitLettersFall);
@@ -27,7 +28,7 @@ export default function ProgressBar() {
         }}
       />
       <Stack mt={1} direction="row" justifyContent="space-evenly" gap={2}>
-        <InfoItem title="Tempo" content={timeTransformer2(timer)} />
+        <InfoItem title="Tempo" content={timeTransformer2(seconds)} />
         <InfoItem title="Apanhadas" content={lettersObtained.toString()} />
         <InfoItem
           title="Caídas"
