@@ -1,18 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import useBoolean from "../hooks/useBoolean";
 import { Text } from "../styles/General";
 
-const SECONDS_BEFORE_START = 3;
+interface Props {
+  seconds: number;
+  setSeconds: React.Dispatch<React.SetStateAction<number>>;
+}
 
-export default function TimerBeforeStart() {
-  const backdrop = useBoolean();
-  const [seconds, setSeconds] = useState(SECONDS_BEFORE_START);
+export default function TimerBeforeStart({ seconds, setSeconds }: Props) {
+  const backdrop = useBoolean(true);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
-  useEffect(() => {
-    backdrop.handleOpen();
-  }, []);
   useEffect(() => {
     if (seconds !== 0) {
       timer.current = setTimeout(() => {

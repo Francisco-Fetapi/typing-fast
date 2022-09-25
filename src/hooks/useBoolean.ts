@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export default function useBoolean() {
-  const [open, setOpen] = useState(false);
+export default function useBoolean(defaultOpen?: boolean) {
+  const [open, setOpen] = useState(defaultOpen || false);
 
   return {
     open,
