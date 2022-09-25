@@ -28,7 +28,7 @@ export default function ProgressBar() {
         <InfoItem title="Tempo" content={timeTransformer2(timer)} />
         <InfoItem title="Apanhadas" content={lettersObtained.toString()} />
         <InfoItem
-          title="Caidas"
+          title="Caídas"
           content={`${lettersFall}/${limitLettersFall}`}
         />
       </Stack>
@@ -43,8 +43,13 @@ interface InfoItemProps {
 
 function InfoItem({ title, content }: InfoItemProps) {
   return (
-    <Text variant="subtitle2">
-      <b>{title.toUpperCase()}:</b> {content}
-    </Text>
+    <Stack alignItems="center">
+      <Text variant="subtitle2">
+        <b>{title.toUpperCase()}</b>
+      </Text>
+      <Text variant="subtitle2" color="Highlight">
+        {content}
+      </Text>
+    </Stack>
   );
 }
