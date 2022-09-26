@@ -3,6 +3,12 @@ import { App, middlewares, sliceCreator } from "../store/App.store";
 
 const initialState: App = {
   darkMode: false,
+  timerPaused: true,
+  timer: 0,
+  lettersObtained: 0,
+  lettersFall: 12,
+  limitLettersFall: 20,
+  bubbles: [],
 };
 
 const app = sliceCreator(initialState);
