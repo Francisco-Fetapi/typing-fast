@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Bubble } from "../entities/Bubble";
+import { ILetter, Letters } from "../entities/ILetter";
 import selectRandomElement from "../helpers/selectRandomElement";
 import {
   selectBubbles,
@@ -12,6 +13,7 @@ import {
   addBubble,
   increaseLettersFail,
   pauseTimer,
+  pressKey,
   setBubbles,
   showMessageBackdrop,
 } from "../store/App.store";
@@ -54,7 +56,6 @@ export default function useGameLoop() {
       return bubble.isInside;
     });
     Bubble.increaseBubbleSpeedToFall();
-    console.log(Bubble.generalSpeedFall);
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
 
@@ -69,5 +70,14 @@ export default function useGameLoop() {
       dispatch(showMessageBackdrop(backdropGameOver({})));
     }
   }, [gameOver]);
+
+  useEffect(() => {
+    window.onkeydown = (e) => {
+      if (Letters.includes(e.key as ILetter)) {
+        const key = e.key as ILetter;
+        dispatch(pressKey(key));
+      }
+    };
+  }, []);
   return { gameOver };
 }

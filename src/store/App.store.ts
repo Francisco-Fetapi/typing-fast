@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { BackdropProps } from "../components/GameBackdrop";
 import { Bubble } from "../entities/Bubble";
+import { ILetter } from "../entities/ILetter";
 import useStatePersist from "../hooks/useStatePersist";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
@@ -75,6 +76,11 @@ export function sliceCreator(initialState: App) {
         const newBubble = new Bubble();
         state.bubbles.unshift(newBubble);
       },
+      pressKey(state, action: PayloadAction<ILetter>) {
+        state.bubbles
+          .find((bubble) => bubble.letter === action.payload)
+          ?.catchIt();
+      },
       updateScore(state, action: PayloadAction<number>) {
         state.score = Math.max(state.score, action.payload);
       },
@@ -128,6 +134,7 @@ export const {
   increaseLettersObtained,
   showMessageBackdrop,
   hideMessageBackdrop,
+  pressKey,
 } = app.actions;
 
 export default store;

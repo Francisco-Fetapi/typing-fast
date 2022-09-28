@@ -17,6 +17,7 @@ export class Bubble {
   static availableLetters: ILetter[] = [];
   static generalSpeedFall: number = 0;
   private topToDecrease: number = 5;
+  public isCatched: boolean = false;
 
   constructor() {
     this.left = selectRandomElement(range(1, 90, 0.5));
@@ -48,12 +49,17 @@ export class Bubble {
     Bubble.generalSpeedFall = Math.min(value, 15);
   }
   update(): Bubble {
-    this.goDown();
+    if (!this.isCatched) {
+      this.goDown();
+    }
     return this;
   }
   private setColor() {
     const colors = selectRandomElement(Bubble.colors);
     this.bgcolor = colors.backgroundColor;
     this.color = colors.color; // textColor
+  }
+  catchIt() {
+    this.isCatched = true;
   }
 }
