@@ -14,6 +14,7 @@ export class Bubble {
   public letter: ILetter;
   public id: string;
   static colors: Color[] = [];
+  private topToDecrease: number = 2;
   constructor() {
     this.left = selectRandomElement(range(1, 90, 0.5));
     this.letter = selectRandomElement(Letters);
@@ -25,8 +26,11 @@ export class Bubble {
       this.isInside = false;
       return this;
     }
-    this.top += 2;
+    this.top += this.topToDecrease;
     return this;
+  }
+  increaseTopToDecrease(value: number) {
+    this.topToDecrease = value;
   }
   update(): Bubble {
     this.goDown();
