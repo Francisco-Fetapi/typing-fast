@@ -1,8 +1,18 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import selectRandomElement from "../helpers/selectRandomElement";
-import { selectBubbles, selectTimer } from "../store/App.selectors";
-import { addBubble, increaseLettersFail, setBubbles } from "../store/App.store";
+import {
+  selectBubbles,
+  selectLettersFall,
+  selectLimitLettersFall,
+  selectTimer,
+} from "../store/App.selectors";
+import {
+  addBubble,
+  increaseLettersFail,
+  pauseTimer,
+  setBubbles,
+} from "../store/App.store";
 
 const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
 const INTERVALS_TO_FALL = [3, 5, 8, 11, 12, 15];
@@ -12,6 +22,9 @@ export default function useGameLoop() {
   const bubbles = useSelector(selectBubbles);
   const dispatch = useDispatch();
   const seconds = useSelector(selectTimer);
+  const lettersFall = useSelector(selectLettersFall);
+  const limitLettersFall = useSelector(selectLimitLettersFall);
+  const gameOver = lettersFall === limitLettersFall;
   const interval = useMemo(() => {
     return selectRandomElement(INTERVALS_TO_FALL);
   }, [seconds]);
@@ -19,9 +32,11 @@ export default function useGameLoop() {
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
-    timer.current = setTimeout(() => {
-      setMseconds(mseconds + 1);
-    }, UPDATE_ALL_IN_EACH);
+    if (!gameOver) {
+      timer.current = setTimeout(() => {
+        setMseconds(mseconds + 1);
+      }, UPDATE_ALL_IN_EACH);
+    }
   }, [mseconds]);
 
   useEffect(() => {
@@ -37,8 +52,15 @@ export default function useGameLoop() {
   }, [mseconds]);
 
   useEffect(() => {
-    7;
     dispatch(addBubble());
   }, [seconds % interval === 0]);
+
+  useEffect(() => {
+    if (gameOver) {
+      console.log("Game Over");
+      dispatch(setBubbles([]));
+      dispatch(pauseTimer());
+    }
+  }, [gameOver]);
   return {};
 }

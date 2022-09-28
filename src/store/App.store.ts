@@ -24,7 +24,7 @@ export const initialState: App = {
   timerPaused: true,
   timer: 0,
   lettersObtained: 0,
-  lettersFall: 12,
+  lettersFall: 15,
   limitLettersFall: 20,
   bubbles: [],
   score: useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE).get() | 0,
