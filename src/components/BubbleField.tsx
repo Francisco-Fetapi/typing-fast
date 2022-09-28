@@ -9,10 +9,12 @@ import useGameLoop from "../hooks/useGameLoop";
 export default function BubbleField() {
   const bubbles = useSelector(selectBubbles);
   const dispatch = useDispatch();
-  useGameLoop();
+  const { gameOver } = useGameLoop();
 
   useEffect(() => {
-    dispatch(playTimer());
+    if (!gameOver) {
+      dispatch(playTimer());
+    }
   }, []);
 
   return (

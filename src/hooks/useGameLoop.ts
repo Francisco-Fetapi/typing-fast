@@ -57,10 +57,9 @@ export default function useGameLoop() {
 
   useEffect(() => {
     if (gameOver) {
-      console.log("Game Over");
       dispatch(setBubbles([]));
       dispatch(pauseTimer());
     }
   }, [gameOver]);
-  return {};
+  return { gameOver };
 }
