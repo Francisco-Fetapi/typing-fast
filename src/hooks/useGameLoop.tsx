@@ -31,6 +31,7 @@ export default function useGameLoop() {
   }, [mseconds]);
 
   useEffect(() => {
+    7;
     dispatch(addBubble());
   }, [seconds % interval === 0]);
   return {};

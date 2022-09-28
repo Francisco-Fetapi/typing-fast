@@ -4,6 +4,7 @@ import { Bubble } from "../entities/Bubble";
 import useStatePersist from "../hooks/useStatePersist";
 
 export const THEME_KEY_IN_LOCALSTORAGE = "darkMode";
+export const SCORE_KEY_IN_LOCAL_STORAGE = "score";
 
 export interface IDarkMode {
   darkMode: boolean;
@@ -15,6 +16,7 @@ export interface App extends IDarkMode {
   lettersFall: number;
   limitLettersFall: number;
   bubbles: Bubble[];
+  score: number;
 }
 
 export const initialState: App = {
@@ -25,6 +27,7 @@ export const initialState: App = {
   lettersFall: 12,
   limitLettersFall: 20,
   bubbles: [],
+  score: useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE).get() | 0,
 };
 
 function stateReseted(initialState: App): App {
@@ -65,6 +68,9 @@ export function sliceCreator(initialState: App) {
         const newBubble = new Bubble();
         state.bubbles.unshift(newBubble);
       },
+      updateScore(state, action: PayloadAction<number>) {
+        state.score = Math.max(state.score, action.payload);
+      },
     },
   });
 }
@@ -93,6 +99,7 @@ export const {
   pauseTimer,
   setBubbles,
   addBubble,
+  updateScore,
 } = app.actions;
 
 export default store;
