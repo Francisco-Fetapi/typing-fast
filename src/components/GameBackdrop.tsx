@@ -111,11 +111,11 @@ export default function GameBackdrop({
               <Box position="absolute" bottom={20}>
                 <Text
                   align="center"
-                  color="Highlight"
-                  sx={{
+                  sx={(theme) => ({
                     textTransform: "uppercase",
                     fontWeight: "bold",
-                  }}
+                    color: theme.palette.success.main,
+                  })}
                   variant="subtitle2"
                 >
                   {secondaryTitle}
