@@ -45,7 +45,7 @@ export class Bubble {
     } else {
       value = val;
     }
-    Bubble.generalSpeedFall = Math.min(value, 30);
+    Bubble.generalSpeedFall = Math.min(value, 15);
   }
   update(): Bubble {
     this.goDown();
