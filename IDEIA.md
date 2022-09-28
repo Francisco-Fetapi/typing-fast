@@ -6,7 +6,7 @@
 - [x] As cores devem ser geradas aleatoriamente. Use as do MUI.
 - [] Deve ter um sistema de score.
 - [] Deve ter um limite de letras caidas, depoi GAMEOVER.
-- [] As letras devem cair em momentos aleatorios.
+- [x] As letras devem cair em momentos aleatorios.
 - [] A velocidade de queda deve aumentar com o tempo.
 - [] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
 - [] O jogo deve ser infinito, nunca deve chegar ao fincal.
