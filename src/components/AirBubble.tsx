@@ -18,7 +18,7 @@ export default function AirBubble({ bubble }: Props) {
         color: bubble.color,
       }}
     >
-      {bubble.letter}
+      {bubble.letter.toUpperCase()}
     </AirBubbleContainer>
   );
 }
