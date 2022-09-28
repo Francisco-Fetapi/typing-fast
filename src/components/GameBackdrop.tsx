@@ -2,7 +2,11 @@ import { Box, Button, useTheme } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { hideMessageBackdrop, resetAllState } from "../store/App.store";
+import {
+  hideMessageBackdrop,
+  playTimer,
+  resetAllState,
+} from "../store/App.store";
 import { BoxColumnCenter, Text } from "../styles/General";
 
 export interface IButton {
@@ -30,7 +34,6 @@ export interface BackdropProps {
   open: boolean;
   type?: keyof IVariants;
   primaryButton?: IButton;
-  secondaryButton?: IButton;
   onMount?: () => void;
 }
 
@@ -40,7 +43,6 @@ export default function GameBackdrop({
   message,
   type = "success",
   primaryButton,
-  secondaryButton,
   secondaryTitle,
   onMount,
 }: BackdropProps) {
@@ -54,11 +56,9 @@ export default function GameBackdrop({
 
   const variant = variants[type];
 
-  function goToHome() {
+  function repeat() {
     dispatch(resetAllState());
-  }
-  function close() {
-    dispatch(hideMessageBackdrop());
+    dispatch(playTimer());
   }
 
   useEffect(() => {
@@ -131,18 +131,9 @@ export default function GameBackdrop({
             {primaryButton && (
               <Button
                 variant="contained"
-                onClick={primaryButton.handleClick || close}
+                onClick={primaryButton.handleClick || repeat}
               >
                 {primaryButton.text}
-              </Button>
-            )}
-            <Box mt={1} />
-            {secondaryButton && (
-              <Button
-                variant="text"
-                onClick={secondaryButton.handleClick || goToHome}
-              >
-                {secondaryButton.text}
               </Button>
             )}
           </BoxColumnCenter>

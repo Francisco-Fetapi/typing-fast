@@ -17,7 +17,7 @@ import {
 import useBackdrop from "./useBackdrop";
 
 const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
-const INTERVALS_TO_FALL = [3, 5, 8, 11, 12, 15];
+const INTERVALS_TO_FALL = [3, 5, 8, 11, 12];
 
 export default function useGameLoop() {
   const [mseconds, setMseconds] = useState(0);
@@ -40,7 +40,7 @@ export default function useGameLoop() {
         setMseconds(mseconds + 1);
       }, UPDATE_ALL_IN_EACH);
     }
-  }, [mseconds]);
+  }, [mseconds, gameOver]);
 
   useEffect(() => {
     let updatedBubbles = bubbles.map((bubble) => bubble.update());
