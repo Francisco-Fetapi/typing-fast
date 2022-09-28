@@ -23,7 +23,7 @@ import {
 import useBackdrop from "./useBackdrop";
 
 const UPDATE_ALL_IN_EACH = 100; //in milliseconds
-const INTERVALS = [3, 2, 5, 1, 4];
+const INTERVALS = [3, 2, 1];
 
 export default function useGameLoop() {
   const [mseconds, setMseconds] = useState(0);
