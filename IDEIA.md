@@ -8,8 +8,8 @@
 - [x] As letras devem cair em momentos aleatorios.
 - [x] Ao clicar numa letra eliminar a correspondente na tela.
 - [x] A velocidade de queda deve aumentar com o tempo.
-- [] Deve ter um sistema de score.
-- [] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
+- [x] Deve ter um sistema de score.
+- [x] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop.
 - [x] O jogo deve ser infinito, nunca deve chegar ao fincal.
 - [x] O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
 - [] O jogo deve ter alguns eventos de recompensa.

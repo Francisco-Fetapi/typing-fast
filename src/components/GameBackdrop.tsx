@@ -2,6 +2,7 @@ import { Box, Button, useTheme } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Bubble } from "../entities/Bubble";
 import {
   hideMessageBackdrop,
   playTimer,
@@ -57,6 +58,7 @@ export default function GameBackdrop({
   const variant = variants[type];
 
   function repeat() {
+    Bubble.generalSpeedFall = 0;
     dispatch(resetAllState());
     dispatch(playTimer());
   }
