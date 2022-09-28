@@ -9,6 +9,12 @@ const initialState: App = {
   lettersFall: 12,
   limitLettersFall: 20,
   bubbles: [],
+  score: 0,
+  backdrop: {
+    title: "",
+    message: "",
+    open: false,
+  },
 };
 
 const app = sliceCreator(initialState);
