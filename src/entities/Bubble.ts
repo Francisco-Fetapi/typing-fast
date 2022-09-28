@@ -61,5 +61,6 @@ export class Bubble {
   }
   catchIt() {
     this.isCatched = true;
+    return this;
   }
 }

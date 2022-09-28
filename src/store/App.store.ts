@@ -77,9 +77,12 @@ export function sliceCreator(initialState: App) {
         state.bubbles.unshift(newBubble);
       },
       pressKey(state, action: PayloadAction<ILetter>) {
-        state.bubbles
+        const catched = state.bubbles
           .find((bubble) => bubble.letter === action.payload)
           ?.catchIt();
+        if (catched) {
+          state.lettersObtained++;
+        }
       },
       updateScore(state, action: PayloadAction<number>) {
         state.score = Math.max(state.score, action.payload);

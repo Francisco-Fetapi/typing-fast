@@ -54,17 +54,17 @@ export default function useGameLoop() {
         dispatch(increaseLettersFail());
         return false;
       }
+      if (bubble.isCatched) {
+        if (mseconds % 10 === 0) {
+          return false;
+        }
+      }
 
-      return bubble.isInside || !bubble.isCatched;
+      return bubble.isInside;
     });
     Bubble.increaseBubbleSpeedToFall();
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
-
-  useEffect(() => {
-    const updatedBubbles = bubbles.filter((bubble) => !bubble.isCatched);
-    dispatch(setBubbles(updatedBubbles));
-  }, [seconds % 3 === 0]); // once by 3 seconds
 
   useEffect(() => {
     dispatch(addBubble());
@@ -86,5 +86,6 @@ export default function useGameLoop() {
       }
     };
   }, []);
+
   return { gameOver };
 }
