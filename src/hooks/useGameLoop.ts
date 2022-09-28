@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Bubble } from "../entities/Bubble";
 import selectRandomElement from "../helpers/selectRandomElement";
 import {
   selectBubbles,
@@ -17,7 +18,7 @@ import {
 import useBackdrop from "./useBackdrop";
 
 const UPDATE_ALL_IN_EACH = 300; //in milliseconds
-const INTERVALS_TO_FALL = [3, 5, 8, 11, 12];
+const INTERVALS = [3, 2, 5];
 
 export default function useGameLoop() {
   const [mseconds, setMseconds] = useState(0);
@@ -28,9 +29,10 @@ export default function useGameLoop() {
   const limitLettersFall = useSelector(selectLimitLettersFall);
   const { backdropGameOver } = useBackdrop();
   const gameOver = lettersFall === limitLettersFall;
-  const interval = useMemo(() => {
-    return selectRandomElement(INTERVALS_TO_FALL);
-  }, [seconds]);
+  const intervalToAddNewBubble = useMemo(
+    () => selectRandomElement(INTERVALS),
+    [seconds]
+  );
 
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -51,12 +53,14 @@ export default function useGameLoop() {
       }
       return bubble.isInside;
     });
+    Bubble.increaseBubbleSpeedToFall();
+    console.log(Bubble.generalSpeedFall);
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
 
   useEffect(() => {
     dispatch(addBubble());
-  }, [seconds % interval === 0]);
+  }, [seconds % intervalToAddNewBubble === 0]);
 
   useEffect(() => {
     if (gameOver) {

@@ -15,6 +15,7 @@ export class Bubble {
   public id: string;
   static colors: Color[] = [];
   static availableLetters: ILetter[] = [];
+  static generalSpeedFall: number = 0;
   private topToDecrease: number = 5;
 
   constructor() {
@@ -31,11 +32,20 @@ export class Bubble {
       this.isInside = false;
       return this;
     }
-    this.top += this.topToDecrease;
+    this.top += this.topToDecrease + Bubble.generalSpeedFall;
     return this;
   }
   increaseTopToDecrease(value: number) {
     this.topToDecrease = value;
+  }
+  static increaseBubbleSpeedToFall(val?: number) {
+    let value = Bubble.generalSpeedFall;
+    if (!val) {
+      value += 0.03;
+    } else {
+      value = val;
+    }
+    Bubble.generalSpeedFall = Math.min(value, 30);
   }
   update(): Bubble {
     this.goDown();
