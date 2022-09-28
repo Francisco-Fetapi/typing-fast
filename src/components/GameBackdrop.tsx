@@ -108,17 +108,19 @@ export default function GameBackdrop({
               {title}
             </Text>
             {secondaryTitle && (
-              <Text
-                align="center"
-                color="Highlight"
-                sx={{
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                }}
-                variant="subtitle2"
-              >
-                {secondaryTitle}
-              </Text>
+              <Box position="absolute" bottom={20}>
+                <Text
+                  align="center"
+                  color="Highlight"
+                  sx={{
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                  }}
+                  variant="subtitle2"
+                >
+                  {secondaryTitle}
+                </Text>
+              </Box>
             )}
             <Box mt={1.5} width={0.85}>
               <Text align="center" variant="subtitle2" color="white">

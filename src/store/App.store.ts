@@ -27,10 +27,10 @@ export const initialState: App = {
   timerPaused: true,
   timer: 0,
   lettersObtained: 0,
-  lettersFall: 15,
-  limitLettersFall: 200,
+  lettersFall: 0,
+  limitLettersFall: 5,
   bubbles: [],
-  score: useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE).get() | 0,
+  score: useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE).get() || 0,
   backdrop: {
     title: "",
     message: "",
@@ -85,7 +85,9 @@ export function sliceCreator(initialState: App) {
         }
       },
       updateScore(state, action: PayloadAction<number>) {
+        const myScore = useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE);
         state.score = Math.max(state.score, action.payload);
+        myScore.save(state.score);
       },
       increaseLettersFail(state) {
         state.lettersFall++;

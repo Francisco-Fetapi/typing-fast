@@ -6,7 +6,9 @@ import selectRandomElement from "../helpers/selectRandomElement";
 import {
   selectBubbles,
   selectLettersFall,
+  selectLettersObtained,
   selectLimitLettersFall,
+  selectScore,
   selectTimer,
 } from "../store/App.selectors";
 import {
@@ -16,6 +18,7 @@ import {
   pressKey,
   setBubbles,
   showMessageBackdrop,
+  updateScore,
 } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 
@@ -29,8 +32,10 @@ export default function useGameLoop() {
   const seconds = useSelector(selectTimer);
   const lettersFall = useSelector(selectLettersFall);
   const limitLettersFall = useSelector(selectLimitLettersFall);
+  const score = useSelector(selectScore);
+  const lettersObtained = useSelector(selectLettersObtained);
   const { backdropGameOver } = useBackdrop();
-  const gameOver = lettersFall === limitLettersFall;
+  const gameOver = lettersFall >= limitLettersFall;
   const intervalToAddNewBubble = useMemo(
     () => selectRandomElement(INTERVALS),
     [seconds]
@@ -71,14 +76,25 @@ export default function useGameLoop() {
 
   useEffect(() => {
     Bubble.increaseBubbleSpeedToFall();
-    console.log("Velocidade incrementada");
   }, [seconds % 3 === 0]);
 
   useEffect(() => {
     if (gameOver) {
       dispatch(setBubbles([]));
       dispatch(pauseTimer());
-      dispatch(showMessageBackdrop(backdropGameOver({})));
+      const newScore = lettersObtained > score;
+      console.log("last", score, "new", lettersObtained);
+      dispatch(updateScore(lettersObtained));
+
+      dispatch(
+        showMessageBackdrop(
+          backdropGameOver({
+            secondaryTitle: newScore
+              ? `Novo recorde: ${lettersObtained}`
+              : undefined,
+          })
+        )
+      );
     }
   }, [gameOver]);
 

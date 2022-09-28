@@ -16,6 +16,9 @@ export const selectProgressValue = (state: RootState) => {
 export const selectBubbles = (state: RootState) => {
   return state.app.bubbles;
 };
+export const selectScore = (state: RootState) => {
+  return state.app.score;
+};
 
 export const selectTimerPaused = (state: RootState) => {
   return state.app.timerPaused;
