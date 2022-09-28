@@ -12,6 +12,7 @@ import {
 import {
   addBubble,
   increaseLettersFail,
+  increaseLettersObtained,
   pauseTimer,
   pressKey,
   setBubbles,
@@ -53,11 +54,17 @@ export default function useGameLoop() {
         dispatch(increaseLettersFail());
         return false;
       }
-      return bubble.isInside;
+
+      return bubble.isInside || !bubble.isCatched;
     });
     Bubble.increaseBubbleSpeedToFall();
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
+
+  useEffect(() => {
+    const updatedBubbles = bubbles.filter((bubble) => !bubble.isCatched);
+    dispatch(setBubbles(updatedBubbles));
+  }, [seconds % 3 === 0]); // once by 3 seconds
 
   useEffect(() => {
     dispatch(addBubble());

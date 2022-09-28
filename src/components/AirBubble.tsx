@@ -14,6 +14,8 @@ export default function AirBubble({ bubble }: Props) {
         transition: `all ${bubble.secondsToFall}s ease`,
         backgroundColor: bubble.bgcolor,
         color: bubble.color,
+        opacity: bubble.isCatched ? 0 : 1,
+        transform: bubble.isCatched ? "scale(0)" : "scale(1)",
       }}
     >
       {bubble.letter.toUpperCase()}
