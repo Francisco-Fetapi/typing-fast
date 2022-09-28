@@ -4,9 +4,10 @@
 - [x] Deve ter um header com as info do jogo: Tempo, letras apanhadas, hight score(num de letras apanhadas)
 - [x] Timer antes do comeco do jogo. `O jogo comeca em: 3,2,1`
 - [x] As cores devem ser geradas aleatoriamente. Use as do MUI.
-- [] Deve ter um sistema de score.
 - [x] Deve ter um limite de letras caidas, depoi GAMEOVER.
 - [x] As letras devem cair em momentos aleatorios.
+- [] Ao clicar numa letra eliminar a correspondente na tela.
+- [] Deve ter um sistema de score.
 - [] A velocidade de queda deve aumentar com o tempo.
 - [] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
 - [x] O jogo deve ser infinito, nunca deve chegar ao fincal.
