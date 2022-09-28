@@ -12,7 +12,7 @@
 - [x] O jogo deve ser infinito, nunca deve chegar ao fincal.
 - [x] O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
 - [] O jogo deve ter alguns eventos de recompensa.
-- [] Cada item magico desses deve estar num hook separado.
+- [] Deve ter um hook para monitorar os eventos especiais. useSpecialBubblesAndEvents.
 
 1. Letras mágicas e Eventos especiais
    1.1 Quando clicada resetar tela
