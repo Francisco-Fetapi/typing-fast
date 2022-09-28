@@ -12,6 +12,7 @@
 - [x] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop.
 - [x] O jogo deve ser infinito, nunca deve chegar ao fincal.
 - [x] O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
+- [] Aumentar limite de caidas em cada minuto. (+o tal minuto)
 - [] O jogo deve ter alguns eventos de recompensa.
 - [] Deve ter um hook para monitorar os eventos especiais. useSpecialBubblesAndEvents.
 
