@@ -15,7 +15,7 @@
 - [] Deve ter um hook para monitorar os eventos especiais. useSpecialBubblesAndEvents.
 
 1. Letras mágicas e Eventos especiais
-   1.1 Quando clicada resetar tela
+   1.1 Quando clicada resetar tela (apagar todas as bubbles)
 
    1.2 Quando clicada pausar jogo durante 5s, as letras param de cair.
 
