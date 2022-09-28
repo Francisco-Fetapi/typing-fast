@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
+import { BackdropProps } from "../components/GameBackdrop";
 import { Bubble } from "../entities/Bubble";
 import useStatePersist from "../hooks/useStatePersist";
 
@@ -17,6 +18,7 @@ export interface App extends IDarkMode {
   limitLettersFall: number;
   bubbles: Bubble[];
   score: number;
+  backdrop: BackdropProps;
 }
 
 export const initialState: App = {
@@ -28,6 +30,11 @@ export const initialState: App = {
   limitLettersFall: 20,
   bubbles: [],
   score: useStatePersist<number>(SCORE_KEY_IN_LOCAL_STORAGE).get() | 0,
+  backdrop: {
+    title: "",
+    message: "",
+    open: false,
+  },
 };
 
 function stateReseted(initialState: App): App {
@@ -77,6 +84,13 @@ export function sliceCreator(initialState: App) {
       increaseLettersObtained(state) {
         state.lettersObtained++;
       },
+      showMessageBackdrop(state, action: PayloadAction<BackdropProps>) {
+        state.backdrop.open = true;
+        Object.assign(state.backdrop, action.payload);
+      },
+      hideMessageBackdrop(state) {
+        state.backdrop.open = false;
+      },
     },
   });
 }
@@ -108,6 +122,8 @@ export const {
   updateScore,
   increaseLettersFail,
   increaseLettersObtained,
+  showMessageBackdrop,
+  hideMessageBackdrop,
 } = app.actions;
 
 export default store;

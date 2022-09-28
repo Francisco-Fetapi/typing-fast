@@ -20,3 +20,7 @@ export const selectBubbles = (state: RootState) => {
 export const selectTimerPaused = (state: RootState) => {
   return state.app.timerPaused;
 };
+
+export const selectBackdropInfo = (state: RootState) => {
+  return state.app.backdrop;
+};

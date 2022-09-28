@@ -28,3 +28,10 @@ export const AirBubbleContainer = styled(Box)`
   align-items: center;
   position: absolute;
 ` as typeof Box;
+
+export const BoxColumnCenter = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+` as typeof Box;

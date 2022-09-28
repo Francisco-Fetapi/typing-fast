@@ -12,7 +12,9 @@ import {
   increaseLettersFail,
   pauseTimer,
   setBubbles,
+  showMessageBackdrop,
 } from "../store/App.store";
+import useBackdrop from "./useBackdrop";
 
 const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
 const INTERVALS_TO_FALL = [3, 5, 8, 11, 12, 15];
@@ -24,6 +26,7 @@ export default function useGameLoop() {
   const seconds = useSelector(selectTimer);
   const lettersFall = useSelector(selectLettersFall);
   const limitLettersFall = useSelector(selectLimitLettersFall);
+  const { backdropGameOver } = useBackdrop();
   const gameOver = lettersFall === limitLettersFall;
   const interval = useMemo(() => {
     return selectRandomElement(INTERVALS_TO_FALL);
@@ -59,6 +62,7 @@ export default function useGameLoop() {
     if (gameOver) {
       dispatch(setBubbles([]));
       dispatch(pauseTimer());
+      dispatch(showMessageBackdrop(backdropGameOver({})));
     }
   }, [gameOver]);
   return { gameOver };
