@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import selectRandomElement from "../helpers/selectRandomElement";
 import { selectBubbles, selectTimer } from "../store/App.selectors";
-import { addBubble, setBubbles } from "../store/App.store";
+import { addBubble, increaseLettersFail, setBubbles } from "../store/App.store";
 
 const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
 const INTERVALS_TO_FALL = [3, 5, 8, 11, 12, 15];
@@ -26,7 +26,13 @@ export default function useGameLoop() {
 
   useEffect(() => {
     let updatedBubbles = bubbles.map((bubble) => bubble.update());
-    updatedBubbles = updatedBubbles.filter((bubble) => bubble.isInside);
+    updatedBubbles = updatedBubbles.filter((bubble) => {
+      if (!bubble.isInside) {
+        dispatch(increaseLettersFail());
+        return false;
+      }
+      return bubble.isInside;
+    });
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
 

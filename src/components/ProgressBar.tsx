@@ -22,7 +22,7 @@ export default function ProgressBar() {
     <ProgressContainer>
       <LinearProgress
         variant="determinate"
-        value={progressValue}
+        value={Math.min(progressValue, 100)}
         sx={{
           height: "100%",
         }}
