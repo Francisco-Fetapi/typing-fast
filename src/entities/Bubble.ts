@@ -14,10 +14,15 @@ export class Bubble {
   public letter: ILetter;
   public id: string;
   static colors: Color[] = [];
+  static availableLetters: ILetter[] = [];
   private topToDecrease: number = 2;
+
   constructor() {
     this.left = selectRandomElement(range(1, 90, 0.5));
-    this.letter = selectRandomElement(Letters);
+    const lettersNotAvailable = Letters.filter(
+      (letter) => !Bubble.availableLetters.includes(letter)
+    );
+    this.letter = selectRandomElement(lettersNotAvailable);
     this.id = v4();
     this.setColor();
   }

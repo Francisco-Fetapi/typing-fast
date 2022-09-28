@@ -61,6 +61,7 @@ export function sliceCreator(initialState: App) {
         state.bubbles = action.payload;
       },
       addBubble(state) {
+        Bubble.availableLetters = state.bubbles.map((bubble) => bubble.letter);
         const newBubble = new Bubble();
         state.bubbles.unshift(newBubble);
       },

@@ -13,7 +13,7 @@ export default function AirBubble({ bubble }: Props) {
       sx={{
         top: `${bubble.top}%`,
         left: `${bubble.left}%`,
-        transition: `all ${bubble.secondsToFall}s linear`,
+        transition: `all ${bubble.secondsToFall}s ease`,
         backgroundColor: bubble.bgcolor,
         color: bubble.color,
       }}
