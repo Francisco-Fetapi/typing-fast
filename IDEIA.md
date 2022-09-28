@@ -1,18 +1,18 @@
 # Ideias da Aplicação
 
-[x] - Deve ter uma página apenas.
-[x] - Deve ter um header com as info do jogo: Tempo, letras apanhadas, hight score(num de letras apanhadas)
-[x] - Timer antes do comeco do jogo. `O jogo comeca em: 3,2,1`
-[] - As cores devem ser geradas aleatoriamente. Use as do MUI.
-[] - Deve ter um sistema de score.
-[] - Deve ter um limite de letras caidas, depoi GAMEOVER.
-[] - As letras devem cair em momentos aleatorios.
-[] - A velocidade de queda deve aumentar com o tempo.
-[] - As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
-[] - O jogo deve ser infinito, nunca deve chegar ao fincal.
-[] - O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
-[] - O jogo deve ter alguns eventos de recompensa.
-[] - Cada item magico desses deve estar num hook separado.
+- [x] Deve ter uma página apenas.
+- [x] Deve ter um header com as info do jogo: Tempo, letras apanhadas, hight score(num de letras apanhadas)
+- [x] Timer antes do comeco do jogo. `O jogo comeca em: 3,2,1`
+- [x] As cores devem ser geradas aleatoriamente. Use as do MUI.
+- [] Deve ter um sistema de score.
+- [] Deve ter um limite de letras caidas, depoi GAMEOVER.
+- [] As letras devem cair em momentos aleatorios.
+- [] A velocidade de queda deve aumentar com o tempo.
+- [] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
+- [] O jogo deve ser infinito, nunca deve chegar ao fincal.
+- [] O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
+- [] O jogo deve ter alguns eventos de recompensa.
+- [] Cada item magico desses deve estar num hook separado.
 
 1. Letras mágicas e Eventos especiais
    1.1 Quando clicada resetar tela
