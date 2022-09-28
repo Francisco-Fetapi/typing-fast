@@ -16,7 +16,7 @@ import {
 } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 
-const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
+const UPDATE_ALL_IN_EACH = 300; //in milliseconds
 const INTERVALS_TO_FALL = [3, 5, 8, 11, 12];
 
 export default function useGameLoop() {
