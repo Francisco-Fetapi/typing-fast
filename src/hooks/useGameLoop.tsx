@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectBubbles, selectTimer } from "../store/App.selectors";
 import { addBubble, setBubbles } from "../store/App.store";
 
-const UPDATE_ALL_IN_EACH = 100; //100 milliseconds
+const UPDATE_ALL_IN_EACH = 300; //100 milliseconds
 
 export default function useGameLoop() {
   const [mseconds, setMseconds] = useState(0);
