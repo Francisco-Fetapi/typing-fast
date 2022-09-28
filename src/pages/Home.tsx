@@ -9,7 +9,7 @@ import useMuiColors from "../hooks/useMuiColors";
 import { selectBackdropInfo } from "../store/App.selectors";
 import { AppContainer } from "../styles/General";
 
-const SECONDS_BEFORE_START = 1;
+const SECONDS_BEFORE_START = 3;
 
 export default function Home() {
   const [seconds, setSeconds] = useState(SECONDS_BEFORE_START);
