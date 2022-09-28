@@ -19,7 +19,7 @@ import {
 } from "../store/App.store";
 import useBackdrop from "./useBackdrop";
 
-const UPDATE_ALL_IN_EACH = 300; //in milliseconds
+const UPDATE_ALL_IN_EACH = 100; //in milliseconds
 const INTERVALS = [3, 2, 5, 1, 4];
 
 export default function useGameLoop() {
@@ -61,13 +61,18 @@ export default function useGameLoop() {
 
       return bubble.isInside;
     });
-    Bubble.increaseBubbleSpeedToFall();
+
     dispatch(setBubbles(updatedBubbles));
   }, [mseconds]);
 
   useEffect(() => {
     dispatch(addBubble());
   }, [seconds % intervalToAddNewBubble === 0]);
+
+  useEffect(() => {
+    Bubble.increaseBubbleSpeedToFall();
+    console.log("Velocidade incrementada");
+  }, [seconds % 3 === 0]);
 
   useEffect(() => {
     if (gameOver) {

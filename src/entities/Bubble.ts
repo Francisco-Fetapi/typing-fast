@@ -10,7 +10,7 @@ export class Bubble {
   public isInside: boolean = true;
   public bgcolor: string = "black";
   public color: string = "white";
-  public secondsToFall: number = 0.4;
+  public secondsToFall: number = 0.5;
   public letter: ILetter;
   public id: string;
   static colors: Color[] = [];
@@ -42,11 +42,11 @@ export class Bubble {
   static increaseBubbleSpeedToFall(val?: number) {
     let value = Bubble.generalSpeedFall;
     if (!val) {
-      value += 0.03;
+      value += 0.025;
     } else {
       value = val;
     }
-    Bubble.generalSpeedFall = Math.min(value, 15);
+    Bubble.generalSpeedFall = Math.min(value, 8);
   }
   update(): Bubble {
     if (!this.isCatched) {
