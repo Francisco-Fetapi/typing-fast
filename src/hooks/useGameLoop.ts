@@ -12,7 +12,6 @@ import {
 import {
   addBubble,
   increaseLettersFail,
-  increaseLettersObtained,
   pauseTimer,
   pressKey,
   setBubbles,
@@ -21,7 +20,7 @@ import {
 import useBackdrop from "./useBackdrop";
 
 const UPDATE_ALL_IN_EACH = 300; //in milliseconds
-const INTERVALS = [3, 2, 5];
+const INTERVALS = [3, 2, 5, 1, 4];
 
 export default function useGameLoop() {
   const [mseconds, setMseconds] = useState(0);

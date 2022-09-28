@@ -6,13 +6,12 @@
 - [x] As cores devem ser geradas aleatoriamente. Use as do MUI.
 - [x] Deve ter um limite de letras caidas, depoi GAMEOVER.
 - [x] As letras devem cair em momentos aleatorios.
-- [] Ao clicar numa letra eliminar a correspondente na tela.
+- [x] Ao clicar numa letra eliminar a correspondente na tela.
 - [] Deve ter um sistema de score.
 - [x] A velocidade de queda deve aumentar com o tempo.
 - [] As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
 - [x] O jogo deve ser infinito, nunca deve chegar ao fincal.
 - [x] O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
-- [] Aumentar numero de bubbles a cair a cada minuto.
 - [] O jogo deve ter alguns eventos de recompensa.
 - [] Deve ter um hook para monitorar os eventos especiais. useSpecialBubblesAndEvents.
 
