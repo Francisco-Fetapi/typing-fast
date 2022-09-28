@@ -10,12 +10,12 @@ export class Bubble {
   public isInside: boolean = true;
   public bgcolor: string = "black";
   public color: string = "white";
-  public secondsToFall: number = 0.5;
+  public secondsToFall: number = 0.4;
   public letter: ILetter;
   public id: string;
   static colors: Color[] = [];
   static availableLetters: ILetter[] = [];
-  private topToDecrease: number = 2;
+  private topToDecrease: number = 5;
 
   constructor() {
     this.left = selectRandomElement(range(1, 90, 0.5));

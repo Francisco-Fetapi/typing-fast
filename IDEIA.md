@@ -7,7 +7,7 @@
 [] - Deve ter um sistema de score.
 [] - Deve ter um limite de letras caidas, depoi GAMEOVER.
 [] - As letras devem cair em momentos aleatorios.
-[] - O numero de bolhas a cair deve aumentar com o tempo.
+[] - A velocidade de queda deve aumentar com o tempo.
 [] - As informações secundárias, como o new score, por exemplo devem ser exibidas em um backdrop
 [] - O jogo deve ser infinito, nunca deve chegar ao fincal.
 [] - O único evento que deve finalizar o jogo é se o úsuario atingir o limite máximo de letras caídas.
