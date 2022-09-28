@@ -100,8 +100,12 @@ export const app = sliceCreator(initialState);
 export const middlewares = {
   serializableCheck: {
     // Ignore these paths in the state
-    ignoredPaths: ["app.bubbles", "payload.0"],
-    ignoredActions: ["app/setBubbles", "app/addBubble"],
+    ignoredPaths: ["app.bubbles", "payload.0", "app.backdrop"],
+    ignoredActions: [
+      "app/setBubbles",
+      "app/addBubble",
+      "app/showMessageBackdrop",
+    ],
   },
 };
 export const store = configureStore({
