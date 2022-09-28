@@ -71,6 +71,12 @@ export function sliceCreator(initialState: App) {
       updateScore(state, action: PayloadAction<number>) {
         state.score = Math.max(state.score, action.payload);
       },
+      increaseLettersFail(state) {
+        state.lettersFall++;
+      },
+      increaseLettersObtained(state) {
+        state.lettersObtained++;
+      },
     },
   });
 }
@@ -100,6 +106,8 @@ export const {
   setBubbles,
   addBubble,
   updateScore,
+  increaseLettersFail,
+  increaseLettersObtained,
 } = app.actions;
 
 export default store;
